@@ -1,7 +1,7 @@
 clc;
 clear all;
 close all;
-load EEG_signal.mat; %%%this file need to change
+load EEG_signal.mat; %%%signal file or time-series data
 pp=max(abs(f));
 f=f/pp;
 f=f';
@@ -9,14 +9,12 @@ x1=f;
 Fs=200;
 N=length(f);
 params.SamplingRate=Fs;
-L=6;
-frequency=(Fs./(2.^(L:-1:1)));
-% frequency=[4 8 13 30 75]; %%%%For rhythm specific case
+L=6; %%%decomposition level
+frequency=(Fs./(2.^(L:-1:1))); %%%dyadic frequency grid
 subresf=1;
-boundaries=(frequency*(2*pi))/Fs;
-
+boundaries=(frequency*(2*pi))/Fs; %%%%boundary evaluation from frequency
 ff=fft(f);
-% We build the corresponding filter bank
+% Build the corresponding filter bank
 mfb=EWT_Meyer_FilterBank(boundaries,length(ff));
 
 % We filter the signal to extract each subband
@@ -24,7 +22,7 @@ ewt=cell(length(mfb),1);
 for k=1:length(mfb)
     mm=real(ifft(conj(mfb{k}).*ff));
     ewt{k}=mm;
-    modes(k,:)=mm;
+    modes(k,:)=mm;  %%%%modes or sub-band signals 
 end
 
 
