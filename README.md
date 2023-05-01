@@ -1,6 +1,6 @@
 # dbpewt (Dyadic boundary points based empirical wavelet transform)
 
-If you are interested to use this work for sensor data processing applications, you need to refer following two papers.
+If you are interested to use this work for sensor data processing applications, you need to refer following three papers.
 
 1. Shaswati Dash, Pranjali Gajbhiye, Phattarapong Sawangjai, Guntitat Sawadwuthikul, Thapanun Sudhawiyangkul, Rajesh Kumar Tripathy, and, Ram Bilas Pachori, "Dyadic Boundary Points based Empirical Wavelet
 Transform for the Elimination of Eye Movement and Eye
